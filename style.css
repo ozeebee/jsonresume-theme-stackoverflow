@@ -53,7 +53,8 @@ table {
 *	COMMONS
 ****************/
 body, html {
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: 'Lato', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    /*font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;*/
     font-size: 13px;
     color: #40484f;
     font-weight: 400;
@@ -129,6 +130,12 @@ section .location {
     font-weight: 700;
 }
 
+section .certiflink {
+    margin-right: .5em;
+    color: #606d76;
+    font-size: 1rem;
+}
+
 #contact {
     margin-top: .5rem;
 }
@@ -162,13 +169,18 @@ section .location {
 }
 
 #header h1.name {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-size: 2.8rem;
     font-weight: 100;
     line-height: 100%;
+    /*font-variant: small-caps;
+    color: #606d76;*/
 }
 
 #header h2.label {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     color: #202931;
+    /*color: #ff6d1f;*/
     font-size: 1.47rem;
     font-weight: 300;
 }
@@ -177,6 +189,14 @@ section .location {
     width: 11em;
     float: right;
     border-radius: 4px;
+}
+
+#header .location + .birth {
+    margin-left: 1.2em;
+}
+
+#header .birth {
+    font-size: 0.8rem;
 }
 
 .main-summary {
@@ -252,7 +272,7 @@ h2.section-title {
 .studyType,
 .title,
 .awarder {
-    display: inline;
+    display: inline-block;
 }
 
 .position,
@@ -281,7 +301,7 @@ h2.section-title {
 
 .section header .date {
     font-size: 1rem;
-    display: inline-table;
+    display: block;
     padding: .1em 0;
     font-weight: 600;
 }
@@ -298,7 +318,7 @@ ul.courses li {
     padding: 4px 5px 5px;
     font-size: .9rem;
     line-height: 1;
-    text-transform: lowercase;
+    /*text-transform: lowercase;*/
     color: #3e6d8e;
     background-color: #dfeaf1;
     border: 0 solid #dfeaf1;
@@ -431,7 +451,8 @@ ul.courses li:hover {
     height: 5px;
 }
 
-.level.beginner .bar::after {
+.level.beginner .bar::after,
+.level.academic.knowledge .bar::after {
     background: #EB5F51;
     width: 2.5em;
 }
@@ -603,7 +624,7 @@ ul.courses li:hover {
         margin: 0;
         padding: 0;
         font-size: .8rem;
-        text-transform: lowercase;
+        /*text-transform: lowercase;*/
     }
 
     ul.keywords li::after,

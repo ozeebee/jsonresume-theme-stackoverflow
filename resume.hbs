@@ -5,7 +5,8 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 		<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+			<link href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,700,700italic,400italic" rel="stylesheet" type="text/css"/>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 		<style>
 			{{{css}}}
 		</style>
@@ -29,6 +30,7 @@
 					{{/if}}
 
 					{{#location}}
+						<span class="fa fa-map-marker"></span>
 						<span class="location">
 							{{#if address}}
 								<span class="address">
@@ -57,7 +59,18 @@
 							{{/if}}
 						</span>
 					{{/location}}
-                    {{#birthData birth}}{{/birthData}}
+          {{#birth}}
+          	<span class="birth">
+          		<span class="fa fa-birthday-cake"></span> Born in
+          		{{place}}
+          		{{#if state}}
+          			, {{state}}
+          		{{/if}}
+          		{{#if date}}
+          			in {{Y date}}
+          		{{/if}}
+          	</span>
+          {{/birth}}
 					<div id="contact">
 						{{#if website}}
 						<div class="website">
@@ -110,34 +123,13 @@
 				{{/if}}
 			{{/resume.basics}}
 
-			{{#if resume.skills.length}}
-				<section class="section margin1">
+			{{#if resume.basics.longSummary}}
+				<section class="section">
 					<header>
-						<h2 class='section-title'>Skills</h2>
+						<h2 class='section-title'>Long summary</h2>
 					</header>
-					<section id="skills">
-						{{#each resume.skills}}
-						<div class="item">
-							{{#if name}}
-							<h3 class="name">
-								{{name}}
-							</h3>
-							{{/if}}
-							{{#if level}}
-							<div class="level {{toLowerCase level}}">
-								<em>{{level}}</em>
-								<div class="bar"></div>
-							</div>
-							{{/if}}
-							{{#if keywords.length}}
-							<ul class="keywords">
-								{{#each keywords}}
-								<li>{{.}}</li>
-								{{/each}}
-							</ul>
-							{{/if}}
-						</div>
-						{{/each}}
+					<section class="long-summary">
+						<div>{{paragraphSplit resume.basics.longSummary}}</div>
 					</section>
 				</section>
 			{{/if}}
@@ -344,6 +336,40 @@
 				</section>
 			{{/if}}
 
+			{{#if resume.skills.length}}
+				<section class="section margin1">
+					<header>
+						<h2 class='section-title'>Skills</h2>
+					</header>
+					<section id="skills">
+						{{#each resume.skills}}
+						<div class="item">
+							{{#if name}}
+							<h3 class="name">
+								{{name}}
+							</h3>
+							{{/if}}
+{{!--
+							{{#if level}}
+							<div class="level {{toLowerCase level}}">
+								<em>{{level}}</em>
+								<div class="bar"></div>
+							</div>
+							{{/if}}
+--}}							
+							{{#if keywords.length}}
+							<ul class="keywords">
+								{{#each keywords}}
+								<li>{{.}}</li>
+								{{/each}}
+							</ul>
+							{{/if}}
+						</div>
+						{{/each}}
+					</section>
+				</section>
+			{{/if}}
+
 			{{#if resume.education.length}}
 				<section class="section">
 					<header>
@@ -468,6 +494,12 @@
 								{{#if awarder}}
 									<div class="awarder">
 										{{awarder}}
+									</div>
+								{{/if}}
+								{{#if certiflink}}
+									<div class="certiflink">
+										<span class="fa fa-certificate"></span>
+										<a href="{{certiflink}}">{{certiflink}}</a>
 									</div>
 								{{/if}}
 							</div>
@@ -637,6 +669,20 @@
 				</section>
 			{{/if}}
 		</div>
+
+		{{#if resume.googleAnalytics}}
+			<script>
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			  ga('create', '{{resume.googleAnalytics}}', 'auto');
+			  ga('send', 'pageview');
+
+			</script>
+		{{/if}}
+
 		<script>
 			(function(){
 				var elements = document.querySelector("#resume");

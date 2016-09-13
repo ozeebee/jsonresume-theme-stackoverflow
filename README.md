@@ -4,6 +4,17 @@
 
 [DEMO](https://themes.jsonresume.org/stackoverflow)
 
+## Changes from the original version
+
+- removed `birth` JS code from `index.js` to put it in the `resume.hbs` template (where it should belong anyway)
+- moved the skills section below work and volunteer
+- changed skills to remove the progress bar and level
+- changed the global document font to Lato, except for `basics.name` and `basics.label`
+- other minor style changes
+- added optional `longSummary` section
+- added optional Google Analytics tracking code ID (resume > `googleAnalytics`)
+- added optional certificate link to award
+
 ## Getting started
 
 ### Install the command line
@@ -58,6 +69,9 @@ With stackoverflow theme it is possible to add:
 - `summary` to each 'interests' and 'education' item
 - `location` to each 'work', 'education' and 'volunteer' item
 - `birth` to 'basics'
+- `longSummary` to 'basics' 
+- `certiflink` to each 'award'
+- `googleAnalytics` to resume in order to tack visits
 
 example of the extra `location` object: 
 
