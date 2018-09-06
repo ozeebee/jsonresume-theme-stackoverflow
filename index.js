@@ -9,7 +9,8 @@
     	
     	return Handlebars.compile(tpl)({
     		css: css,
-    		resume: resume
+    		resume: resume,
+            curdate: new Date().toString()
     	});
     }
 

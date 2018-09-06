@@ -639,9 +639,10 @@ ul.courses li:hover {
         font-weight: 600;
     }
 
-    ul.keywords::before {
+    /* AJO
+    #skills ul.keywords::before {
         content: "Skills acquired: ";
-    }
+    }*/
 
     #skills .keywords::before {
         content: '';
