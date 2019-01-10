@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 		<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
 			<link href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,700,700italic,400italic" rel="stylesheet" type="text/css"/>
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<style>
 			{{{css}}}
 		</style>
@@ -17,7 +17,7 @@
 			{{#resume.basics}}
 				<header id="header" class="clear">
 					{{#if picture}}
-						<img class="picture" src="{{picture}}" alt="{{name}}"/>
+						<img class="picture" src="{{picture}}" alt="{{name}}" style="max-width: 110px; max-height: 110px;" />
 						<div class="middle">
 							<h1 class="name">{{name}}</h1>
 							<h2 class="label">{{label}}</h2>
